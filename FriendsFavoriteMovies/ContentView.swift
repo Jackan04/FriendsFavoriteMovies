@@ -11,7 +11,7 @@ import SwiftData
 struct ContentView: View {
     var body: some View {
         TabView{
-            FriendList()
+            FilteredFriendList()
                 .tabItem {
                     Label("Friends", systemImage: "person.and.person")
                 }

@@ -13,6 +13,14 @@ struct FriendList: View {
     @Environment(\.modelContext) private var context
     @State private var newFriend: Friend?
     
+    init(nameFilter: String = "") {
+        let predicate = #Predicate<Friend> { friend in
+            nameFilter.isEmpty || friend.name
+                .localizedStandardContains(nameFilter)
+        }
+        _friends = Query(filter: predicate, sort: \Friend.name)
+    }
+    
     var body: some View {
         NavigationSplitView {
           Group {
