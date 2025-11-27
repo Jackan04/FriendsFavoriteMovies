@@ -11,6 +11,7 @@ import SwiftData
 struct FriendDetails: View {
     @Bindable var friend: Friend
     let isNew: Bool
+    
     @Query(sort: \Movie.title) private var movies: [Movie]
     
     @Environment(\.dismiss) private var dismiss
